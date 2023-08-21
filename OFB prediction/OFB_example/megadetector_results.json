@@ -1,0 +1,1395 @@
+{
+ "images": [
+  {
+   "file": "0new\\B310_OCS_NA_2012-12-19_2.jpg",
+   "max_detection_conf": 0.9,
+   "detections": [
+    {
+     "category": "1",
+     "conf": 0.9,
+     "bbox": [
+      0.1876,
+      0.271,
+      0.5219,
+      0.4685
+     ]
+    }
+   ]
+  },
+  {
+   "file": "0new\\Dielen_OCS_NA_2017-02-17_NA_1.JPG",
+   "max_detection_conf": 0.963,
+   "detections": [
+    {
+     "category": "1",
+     "conf": 0.963,
+     "bbox": [
+      0.46,
+      0.4695,
+      0.323,
+      0.2723
+     ]
+    }
+   ]
+  },
+  {
+   "file": "OCS_Letty\\Letty_OCS_NA_2021-04-24_NA_18.JPG",
+   "max_detection_conf": 0.925,
+   "detections": [
+    {
+     "category": "1",
+     "conf": 0.925,
+     "bbox": [
+      0,
+      0.6134,
+      0.1867,
+      0.2175
+     ]
+    }
+   ]
+  },
+  {
+   "file": "OCS_Letty\\Letty_OCS_NA_2021-05-29_NA_17.JPG",
+   "max_detection_conf": 0.963,
+   "detections": [
+    {
+     "category": "1",
+     "conf": 0.00919,
+     "bbox": [
+      0.8572,
+      0.7555,
+      0.1427,
+      0.2125
+     ]
+    },
+    {
+     "category": "1",
+     "conf": 0.963,
+     "bbox": [
+      0.2411,
+      0.5104,
+      0.2997,
+      0.272
+     ]
+    }
+   ]
+  },
+  {
+   "file": "OCS_Letty\\Letty_OCS_NA_2021-06-15_NA_15.JPG",
+   "max_detection_conf": 0.973,
+   "detections": [
+    {
+     "category": "1",
+     "conf": 0.973,
+     "bbox": [
+      0.4934,
+      0.498,
+      0.3283,
+      0.2685
+     ]
+    }
+   ]
+  },
+  {
+   "file": "OCS_Letty\\Letty_OCS_NA_2021-10-07_NA_14.JPG",
+   "max_detection_conf": 0.925,
+   "detections": [
+    {
+     "category": "1",
+     "conf": 0.925,
+     "bbox": [
+      0.4174,
+      0.4224,
+      0.2731,
+      0.1895
+     ]
+    }
+   ]
+  },
+  {
+   "file": "OCS_Letty\\Letty_OCS_NA_2021-10-07_NA_16.JPG",
+   "max_detection_conf": 0.976,
+   "detections": [
+    {
+     "category": "1",
+     "conf": 0.00675,
+     "bbox": [
+      0.9143,
+      0.7775,
+      0.08564,
+      0.1105
+     ]
+    },
+    {
+     "category": "1",
+     "conf": 0.581,
+     "bbox": [
+      0.8645,
+      0.7785,
+      0.1354,
+      0.1895
+     ]
+    },
+    {
+     "category": "1",
+     "conf": 0.976,
+     "bbox": [
+      0.5081,
+      0.5049,
+      0.3495,
+      0.2894
+     ]
+    }
+   ]
+  },
+  {
+   "file": "OCS_Letty\\Letty_OCS_NA_2021-11-03_NA_4.JPG",
+   "max_detection_conf": 0.978,
+   "detections": [
+    {
+     "category": "1",
+     "conf": 0.144,
+     "bbox": [
+      0.8468,
+      0.7905,
+      0.1531,
+      0.1784
+     ]
+    },
+    {
+     "category": "1",
+     "conf": 0.978,
+     "bbox": [
+      0.2816,
+      0.3704,
+      0.5856,
+      0.4995
+     ]
+    }
+   ]
+  },
+  {
+   "file": "OCS_Letty\\Letty_OCS_NA_2022-02-11_NA_10.JPG",
+   "max_detection_conf": 0.944,
+   "detections": [
+    {
+     "category": "1",
+     "conf": 0.944,
+     "bbox": [
+      0.6312,
+      0.384,
+      0.2476,
+      0.2489
+     ]
+    }
+   ]
+  },
+  {
+   "file": "OCS_Letty\\Letty_OCS_NA_2022-02-28_NA_19.JPG",
+   "max_detection_conf": 0.952,
+   "detections": [
+    {
+     "category": "1",
+     "conf": 0.952,
+     "bbox": [
+      0.1222,
+      0.4935,
+      0.4255,
+      0.2985
+     ]
+    }
+   ]
+  },
+  {
+   "file": "OCS_Letty\\Letty_OCS_NA_2022-03-14_NA_11.JPG",
+   "max_detection_conf": 0.976,
+   "detections": [
+    {
+     "category": "1",
+     "conf": 0.976,
+     "bbox": [
+      0.01746,
+      0.4007,
+      0.2806,
+      0.2247
+     ]
+    }
+   ]
+  },
+  {
+   "file": "OCS_Letty\\Letty_OCS_NA_2022-03-20_NA_6.JPG",
+   "max_detection_conf": 0.961,
+   "detections": [
+    {
+     "category": "1",
+     "conf": 0.00519,
+     "bbox": [
+      0.9047,
+      0.5244,
+      0.01157,
+      0.0185
+     ]
+    },
+    {
+     "category": "1",
+     "conf": 0.961,
+     "bbox": [
+      0.2777,
+      0.4259,
+      0.2442,
+      0.1975
+     ]
+    }
+   ]
+  },
+  {
+   "file": "OCS_Letty\\Letty_OCS_NA_2022-03-26_NA_3.JPG",
+   "max_detection_conf": 0.965,
+   "detections": [
+    {
+     "category": "1",
+     "conf": 0.965,
+     "bbox": [
+      0.1281,
+      0.5549,
+      0.2092,
+      0.197
+     ]
+    }
+   ]
+  },
+  {
+   "file": "OCS_Letty\\Letty_OCS_NA_2022-03-29_NA_5.JPG",
+   "max_detection_conf": 0.946,
+   "detections": [
+    {
+     "category": "1",
+     "conf": 0.946,
+     "bbox": [
+      0.3784,
+      0.4895,
+      0.4259,
+      0.3219
+     ]
+    }
+   ]
+  },
+  {
+   "file": "OCS_Letty\\Letty_OCS_NA_2022-04-09_NA_12.JPG",
+   "max_detection_conf": 0.892,
+   "detections": [
+    {
+     "category": "1",
+     "conf": 0.892,
+     "bbox": [
+      0,
+      0.237,
+      0.764,
+      0.7305
+     ]
+    }
+   ]
+  },
+  {
+   "file": "OCS_Letty\\Letty_OCS_NA_2022-04-09_NA_13.JPG",
+   "max_detection_conf": 0.921,
+   "detections": [
+    {
+     "category": "1",
+     "conf": 0.921,
+     "bbox": [
+      0.3374,
+      0.1555,
+      0.6625,
+      0.8129
+     ]
+    }
+   ]
+  },
+  {
+   "file": "OCS_Letty\\Letty_OCS_NA_2022-04-14_NA_8.JPG",
+   "max_detection_conf": 0.959,
+   "detections": [
+    {
+     "category": "1",
+     "conf": 0.0106,
+     "bbox": [
+      0.1142,
+      0.9479,
+      0.083,
+      0.03125
+     ]
+    },
+    {
+     "category": "1",
+     "conf": 0.959,
+     "bbox": [
+      0.5922,
+      0.4505,
+      0.3056,
+      0.1894
+     ]
+    }
+   ]
+  },
+  {
+   "file": "OCS_Letty\\Letty_OCS_NA_2022-04-29_NA_7.JPG",
+   "max_detection_conf": 0.929,
+   "detections": [
+    {
+     "category": "1",
+     "conf": 0.929,
+     "bbox": [
+      0.0004882,
+      0.4921,
+      0.2119,
+      0.1861
+     ]
+    }
+   ]
+  },
+  {
+   "file": "OCS_Letty\\Letty_OCS_NA_2022-05-03_NA_9.JPG",
+   "max_detection_conf": 0.975,
+   "detections": [
+    {
+     "category": "1",
+     "conf": 0.975,
+     "bbox": [
+      0.6665,
+      0.4627,
+      0.3334,
+      0.3271
+     ]
+    }
+   ]
+  },
+  {
+   "file": "OCS_Letty\\Letty_OCS_NA_2022-10-19_NA_1.jpg",
+   "max_detection_conf": 0.942,
+   "detections": [
+    {
+     "category": "1",
+     "conf": 0.942,
+     "bbox": [
+      0.2984,
+      0.4395,
+      0.4359,
+      0.4666
+     ]
+    }
+   ]
+  },
+  {
+   "file": "OCS_Letty\\Letty_OCS_NA_2022-10-19_NA_2.jpg",
+   "max_detection_conf": 0.901,
+   "detections": [
+    {
+     "category": "1",
+     "conf": 0.901,
+     "bbox": [
+      0.04218,
+      0.02708,
+      0.8484,
+      0.9145
+     ]
+    }
+   ]
+  },
+  {
+   "file": "OCS_Minus\\Minus_OCS_NA_2016-03-06_NA_11.JPG",
+   "max_detection_conf": 0.97,
+   "detections": [
+    {
+     "category": "1",
+     "conf": 0.97,
+     "bbox": [
+      0.319,
+      0.179,
+      0.3186,
+      0.4634
+     ]
+    }
+   ]
+  },
+  {
+   "file": "OCS_Minus\\Minus_OCS_NA_2016-03-25_NA_19.JPG",
+   "max_detection_conf": 0.96,
+   "detections": [
+    {
+     "category": "1",
+     "conf": 0.96,
+     "bbox": [
+      0.395,
+      0.427,
+      0.1883,
+      0.2617
+     ]
+    }
+   ]
+  },
+  {
+   "file": "OCS_Minus\\Minus_OCS_NA_2016-04-26_NA_10.JPG",
+   "max_detection_conf": 0.973,
+   "detections": [
+    {
+     "category": "1",
+     "conf": 0.973,
+     "bbox": [
+      0.5224,
+      0.4762,
+      0.4683,
+      0.4924
+     ]
+    }
+   ]
+  },
+  {
+   "file": "OCS_Minus\\Minus_OCS_NA_2016-04-26_NA_9.JPG",
+   "max_detection_conf": 0.969,
+   "detections": [
+    {
+     "category": "1",
+     "conf": 0.969,
+     "bbox": [
+      0.1475,
+      0.271,
+      0.3783,
+      0.4611
+     ]
+    }
+   ]
+  },
+  {
+   "file": "OCS_Minus\\Minus_OCS_NA_2016-07-04_NA_12.JPG",
+   "max_detection_conf": 0.778,
+   "detections": [
+    {
+     "category": "1",
+     "conf": 0.0292,
+     "bbox": [
+      0.3433,
+      0.1322,
+      0.2508,
+      0.5833
+     ]
+    },
+    {
+     "category": "1",
+     "conf": 0.778,
+     "bbox": [
+      0.415,
+      0.2911,
+      0.4441,
+      0.5355
+     ]
+    }
+   ]
+  },
+  {
+   "file": "OCS_Minus\\Minus_OCS_NA_2016-08-31_NA_7.JPG",
+   "max_detection_conf": 0.734,
+   "detections": [
+    {
+     "category": "1",
+     "conf": 0.00611,
+     "bbox": [
+      0.3749,
+      0.3166,
+      0.2025,
+      0.3388
+     ]
+    },
+    {
+     "category": "1",
+     "conf": 0.0291,
+     "bbox": [
+      0.4175,
+      0.4377,
+      0.1474,
+      0.09666
+     ]
+    },
+    {
+     "category": "1",
+     "conf": 0.0477,
+     "bbox": [
+      0.2758,
+      0.1833,
+      0.3208,
+      0.3555
+     ]
+    },
+    {
+     "category": "1",
+     "conf": 0.734,
+     "bbox": [
+      0,
+      0.2188,
+      0.4308,
+      0.6588
+     ]
+    }
+   ]
+  },
+  {
+   "file": "OCS_Minus\\Minus_OCS_NA_2016-08-31_NA_8.JPG",
+   "max_detection_conf": 0.889,
+   "detections": [
+    {
+     "category": "1",
+     "conf": 0.794,
+     "bbox": [
+      0.4158,
+      0.3388,
+      0.5666,
+      0.5455
+     ]
+    },
+    {
+     "category": "1",
+     "conf": 0.889,
+     "bbox": [
+      0.3491,
+      0.1855,
+      0.2483,
+      0.3522
+     ]
+    }
+   ]
+  },
+  {
+   "file": "OCS_Minus\\Minus_OCS_NA_2016-09-01_NA_20.JPG",
+   "max_detection_conf": 0.965,
+   "detections": [
+    {
+     "category": "1",
+     "conf": 0.965,
+     "bbox": [
+      0.2216,
+      0.4642,
+      0.1483,
+      0.2034
+     ]
+    }
+   ]
+  },
+  {
+   "file": "OCS_Minus\\Minus_OCS_NA_2016-09-20_NA_6.JPG",
+   "max_detection_conf": 0.963,
+   "detections": [
+    {
+     "category": "1",
+     "conf": 0.963,
+     "bbox": [
+      0.3799,
+      0.4146,
+      0.441,
+      0.544
+     ]
+    }
+   ]
+  },
+  {
+   "file": "OCS_Minus\\Minus_OCS_NA_2016-12-31_NA_13.JPG",
+   "max_detection_conf": 0.939,
+   "detections": [
+    {
+     "category": "1",
+     "conf": 0.939,
+     "bbox": [
+      0.6299,
+      0.4285,
+      0.272,
+      0.2294
+     ]
+    }
+   ]
+  },
+  {
+   "file": "OCS_Minus\\Minus_OCS_NA_2017-02-09_NA_17.JPG",
+   "max_detection_conf": 0.95,
+   "detections": [
+    {
+     "category": "1",
+     "conf": 0.95,
+     "bbox": [
+      0.5555,
+      0.3739,
+      0.3866,
+      0.2832
+     ]
+    }
+   ]
+  },
+  {
+   "file": "OCS_Minus\\Minus_OCS_NA_2017-03-15_NA_2.JPG",
+   "max_detection_conf": 0.963,
+   "detections": [
+    {
+     "category": "1",
+     "conf": 0.134,
+     "bbox": [
+      0.393,
+      0.09236,
+      0.2029,
+      0.2984
+     ]
+    },
+    {
+     "category": "1",
+     "conf": 0.963,
+     "bbox": [
+      0.416,
+      0.2912,
+      0.5429,
+      0.6642
+     ]
+    }
+   ]
+  },
+  {
+   "file": "OCS_Minus\\Minus_OCS_NA_2017-03-24_NA_4.JPG",
+   "max_detection_conf": 0.96,
+   "detections": [
+    {
+     "category": "1",
+     "conf": 0.2,
+     "bbox": [
+      0.392,
+      0.08703,
+      0.2049,
+      0.3925
+     ]
+    },
+    {
+     "category": "1",
+     "conf": 0.96,
+     "bbox": [
+      0.486,
+      0.2309,
+      0.4469,
+      0.5968
+     ]
+    }
+   ]
+  },
+  {
+   "file": "OCS_Minus\\Minus_OCS_NA_2017-03-28_NA_5.JPG",
+   "max_detection_conf": 0.979,
+   "detections": [
+    {
+     "category": "1",
+     "conf": 0.979,
+     "bbox": [
+      0.4889,
+      0.3214,
+      0.5109,
+      0.6323
+     ]
+    }
+   ]
+  },
+  {
+   "file": "OCS_Minus\\Minus_OCS_NA_2017-04-02_NA_14.JPG",
+   "max_detection_conf": 0.949,
+   "detections": [
+    {
+     "category": "1",
+     "conf": 0.949,
+     "bbox": [
+      0.1979,
+      0.4493,
+      0.31,
+      0.3571
+     ]
+    }
+   ]
+  },
+  {
+   "file": "OCS_Minus\\Minus_OCS_NA_2017-04-02_NA_15.JPG",
+   "max_detection_conf": 0.929,
+   "detections": [
+    {
+     "category": "1",
+     "conf": 0.929,
+     "bbox": [
+      0.5049,
+      0.3935,
+      0.1519,
+      0.2584
+     ]
+    }
+   ]
+  },
+  {
+   "file": "OCS_Minus\\Minus_OCS_NA_2017-09-27_NA_18.JPG",
+   "max_detection_conf": 0.953,
+   "detections": [
+    {
+     "category": "1",
+     "conf": 0.953,
+     "bbox": [
+      0.3266,
+      0.2834,
+      0.3633,
+      0.363
+     ]
+    }
+   ]
+  },
+  {
+   "file": "OCS_Minus\\Minus_OCS_NA_2017-12-09_NA_1.JPG",
+   "max_detection_conf": 0.963,
+   "detections": [
+    {
+     "category": "1",
+     "conf": 0.963,
+     "bbox": [
+      0.4216,
+      0.1733,
+      0.2399,
+      0.4655
+     ]
+    }
+   ]
+  },
+  {
+   "file": "OCS_Minus\\Minus_OCS_NA_2017-12-18_NA_3.JPG",
+   "max_detection_conf": 0.952,
+   "detections": [
+    {
+     "category": "1",
+     "conf": 0.952,
+     "bbox": [
+      0.4458,
+      0.419,
+      0.5149,
+      0.3866
+     ]
+    }
+   ]
+  },
+  {
+   "file": "OCS_Minus\\Minus_OCS_NA_2018-07-03_NA_16.JPG",
+   "max_detection_conf": 0.96,
+   "detections": [
+    {
+     "category": "1",
+     "conf": 0.96,
+     "bbox": [
+      0.4491,
+      0.2537,
+      0.4791,
+      0.3704
+     ]
+    }
+   ]
+  },
+  {
+   "file": "OFB_OCELLES_1376\\1376_OFB_OCELLES_2019-06-13_Orchamps-Vennes_1.JPG",
+   "max_detection_conf": 0.961,
+   "detections": [
+    {
+     "category": "1",
+     "conf": 0.961,
+     "bbox": [
+      0.451,
+      0.4551,
+      0.2612,
+      0.2666
+     ]
+    }
+   ]
+  },
+  {
+   "file": "OFB_OCELLES_1376\\1376_OFB_OCELLES_2019-09-21_Orchamps-Vennes_10.jpg",
+   "max_detection_conf": 0.926,
+   "detections": [
+    {
+     "category": "1",
+     "conf": 0.00964,
+     "bbox": [
+      0.9646,
+      0.2898,
+      0.03534,
+      0.2898
+     ]
+    },
+    {
+     "category": "1",
+     "conf": 0.926,
+     "bbox": [
+      0,
+      0.4576,
+      0.2733,
+      0.2746
+     ]
+    }
+   ]
+  },
+  {
+   "file": "OFB_OCELLES_1376\\1376_OFB_OCELLES_2019-09-21_Orchamps-Vennes_11.jpg",
+   "max_detection_conf": 0.875,
+   "detections": [
+    {
+     "category": "1",
+     "conf": 0.875,
+     "bbox": [
+      0,
+      0.4382,
+      0.2286,
+      0.294
+     ]
+    }
+   ]
+  },
+  {
+   "file": "OFB_OCELLES_1376\\1376_OFB_OCELLES_2019-09-21_Orchamps-Vennes_2.jpg",
+   "max_detection_conf": 0.947,
+   "detections": [
+    {
+     "category": "1",
+     "conf": 0.947,
+     "bbox": [
+      0.5421,
+      0.4958,
+      0.3429,
+      0.4364
+     ]
+    }
+   ]
+  },
+  {
+   "file": "OFB_OCELLES_1376\\1376_OFB_OCELLES_2019-09-21_Orchamps-Vennes_3.jpg",
+   "max_detection_conf": 0.926,
+   "detections": [
+    {
+     "category": "1",
+     "conf": 0.926,
+     "bbox": [
+      0.3552,
+      0.3877,
+      0.3521,
+      0.3988
+     ]
+    }
+   ]
+  },
+  {
+   "file": "OFB_OCELLES_1376\\1376_OFB_OCELLES_2019-09-21_Orchamps-Vennes_4.jpg",
+   "max_detection_conf": 0.936,
+   "detections": [
+    {
+     "category": "1",
+     "conf": 0.0234,
+     "bbox": [
+      0.3931,
+      0.6745,
+      0.1816,
+      0.1011
+     ]
+    },
+    {
+     "category": "1",
+     "conf": 0.773,
+     "bbox": [
+      0.3469,
+      0.6731,
+      0.2302,
+      0.1842
+     ]
+    },
+    {
+     "category": "1",
+     "conf": 0.936,
+     "bbox": [
+      0.009397,
+      0.2506,
+      0.2842,
+      0.4792
+     ]
+    }
+   ]
+  },
+  {
+   "file": "OFB_OCELLES_1376\\1376_OFB_OCELLES_2019-09-21_Orchamps-Vennes_5.jpg",
+   "max_detection_conf": 0.935,
+   "detections": [
+    {
+     "category": "1",
+     "conf": 0.935,
+     "bbox": [
+      0.0789,
+      0.4022,
+      0.3789,
+      0.3966
+     ]
+    }
+   ]
+  },
+  {
+   "file": "OFB_OCELLES_1376\\1376_OFB_OCELLES_2019-09-21_Orchamps-Vennes_6.jpg",
+   "max_detection_conf": 0.948,
+   "detections": [
+    {
+     "category": "1",
+     "conf": 0.00505,
+     "bbox": [
+      0.9695,
+      0.2988,
+      0.03049,
+      0.08938
+     ]
+    },
+    {
+     "category": "1",
+     "conf": 0.00936,
+     "bbox": [
+      0.3792,
+      0.627,
+      0.2978,
+      0.2583
+     ]
+    },
+    {
+     "category": "1",
+     "conf": 0.358,
+     "bbox": [
+      0.3799,
+      0.6256,
+      0.1735,
+      0.148
+     ]
+    },
+    {
+     "category": "1",
+     "conf": 0.948,
+     "bbox": [
+      0.3252,
+      0.2877,
+      0.2611,
+      0.3575
+     ]
+    }
+   ]
+  },
+  {
+   "file": "OFB_OCELLES_1376\\1376_OFB_OCELLES_2019-09-21_Orchamps-Vennes_7.jpg",
+   "max_detection_conf": 0.928,
+   "detections": [
+    {
+     "category": "1",
+     "conf": 0.0065,
+     "bbox": [
+      0.1295,
+      0.6626,
+      0.06935,
+      0.1821
+     ]
+    },
+    {
+     "category": "1",
+     "conf": 0.0694,
+     "bbox": [
+      0.4565,
+      0.7112,
+      0.1257,
+      0.1497
+     ]
+    },
+    {
+     "category": "1",
+     "conf": 0.139,
+     "bbox": [
+      0.3849,
+      0.5101,
+      0.02286,
+      0.06207
+     ]
+    },
+    {
+     "category": "1",
+     "conf": 0.356,
+     "bbox": [
+      0.3673,
+      0.672,
+      0.1951,
+      0.1187
+     ]
+    },
+    {
+     "category": "1",
+     "conf": 0.928,
+     "bbox": [
+      0.1646,
+      0.5748,
+      0.208,
+      0.2968
+     ]
+    }
+   ]
+  },
+  {
+   "file": "OFB_OCELLES_1376\\1376_OFB_OCELLES_2019-09-21_Orchamps-Vennes_8.jpg",
+   "max_detection_conf": 0.906,
+   "detections": [
+    {
+     "category": "1",
+     "conf": 0.906,
+     "bbox": [
+      0.1999,
+      0.4867,
+      0.2148,
+      0.3905
+     ]
+    }
+   ]
+  },
+  {
+   "file": "OFB_OCELLES_1376\\1376_OFB_OCELLES_2019-09-21_Orchamps-Vennes_9.jpg",
+   "max_detection_conf": 0.847,
+   "detections": [
+    {
+     "category": "1",
+     "conf": 0.847,
+     "bbox": [
+      0.07601,
+      0.456,
+      0.2539,
+      0.3263
+     ]
+    }
+   ]
+  },
+  {
+   "file": "OFB_OCELLES_1376\\1376_OFB_OCELLES_2019-12-17_Orchamps-Vennes_12.JPG",
+   "max_detection_conf": 0.977,
+   "detections": [
+    {
+     "category": "1",
+     "conf": 0.977,
+     "bbox": [
+      0.1525,
+      0.2908,
+      0.3163,
+      0.3765
+     ]
+    }
+   ]
+  },
+  {
+   "file": "OFB_OCELLES_1376\\1376_OFB_OCELLES_2020-01-14_Consolation-Maisonnettes_13.jpeg",
+   "max_detection_conf": 0.941,
+   "detections": [
+    {
+     "category": "1",
+     "conf": 0.00798,
+     "bbox": [
+      0.5122,
+      0.5171,
+      0.0592,
+      0.06577
+     ]
+    },
+    {
+     "category": "1",
+     "conf": 0.941,
+     "bbox": [
+      0.03979,
+      0.3823,
+      0.1414,
+      0.2439
+     ]
+    }
+   ]
+  },
+  {
+   "file": "OFB_OCELLES_1376\\1376_OFB_OCELLES_2020-01-14_Consolation-Maisonnettes_14.jpeg",
+   "max_detection_conf": 0.92,
+   "detections": [
+    {
+     "category": "1",
+     "conf": 0.01,
+     "bbox": [
+      0.51,
+      0.5161,
+      0.0625,
+      0.06955
+     ]
+    },
+    {
+     "category": "1",
+     "conf": 0.92,
+     "bbox": [
+      0,
+      0.3785,
+      0.1135,
+      0.1948
+     ]
+    }
+   ]
+  },
+  {
+   "file": "OFB_OCELLES_1376\\1376_OFB_OCELLES_2020-01-14_Consolation-Maisonnettes_15.jpeg",
+   "max_detection_conf": 0.942,
+   "detections": [
+    {
+     "category": "1",
+     "conf": 0.942,
+     "bbox": [
+      0.51,
+      0.3374,
+      0.4874,
+      0.5382
+     ]
+    }
+   ]
+  },
+  {
+   "file": "OFB_OCELLES_1376\\1376_OFB_OCELLES_2020-01-14_Consolation-Maisonnettes_16.jpeg",
+   "max_detection_conf": 0.868,
+   "detections": [
+    {
+     "category": "1",
+     "conf": 0.0053,
+     "bbox": [
+      0.5097,
+      0.5128,
+      0.06094,
+      0.0688
+     ]
+    },
+    {
+     "category": "1",
+     "conf": 0.868,
+     "bbox": [
+      0,
+      0.4133,
+      0.08637,
+      0.127
+     ]
+    }
+   ]
+  },
+  {
+   "file": "OFB_OCELLES_1376\\1376_OFB_OCELLES_2020-01-14_Consolation-Maisonnettes_17.jpeg",
+   "max_detection_conf": 0.943,
+   "detections": [
+    {
+     "category": "1",
+     "conf": 0.943,
+     "bbox": [
+      0.7849,
+      0.3346,
+      0.2148,
+      0.413
+     ]
+    }
+   ]
+  },
+  {
+   "file": "OFB_OCELLES_1376\\1376_OFB_OCELLES_2020-03-20_Fournet-Luisans_18.JPG",
+   "max_detection_conf": 0.968,
+   "detections": [
+    {
+     "category": "1",
+     "conf": 0.968,
+     "bbox": [
+      0.4056,
+      0.4229,
+      0.3787,
+      0.3766
+     ]
+    }
+   ]
+  },
+  {
+   "file": "OFB_OCELLES_1376\\1376_OFB_OCELLES_2020-03-20_Fournet-Luisans_19.JPG",
+   "max_detection_conf": 0.928,
+   "detections": [
+    {
+     "category": "1",
+     "conf": 0.0154,
+     "bbox": [
+      0.299,
+      0.6833,
+      0.2618,
+      0.2862
+     ]
+    },
+    {
+     "category": "1",
+     "conf": 0.044,
+     "bbox": [
+      0.3418,
+      0.69,
+      0.1381,
+      0.2379
+     ]
+    },
+    {
+     "category": "1",
+     "conf": 0.928,
+     "bbox": [
+      0.02312,
+      0.6945,
+      0.3725,
+      0.3054
+     ]
+    }
+   ]
+  },
+  {
+   "file": "OFB_OCELLES_1376\\1376_OFB_OCELLES_2020-03-20_Fournet-Luisans_20.JPG",
+   "max_detection_conf": 0.787,
+   "detections": [
+    {
+     "category": "1",
+     "conf": 0.015,
+     "bbox": [
+      0.2953,
+      0.682,
+      0.2415,
+      0.3154
+     ]
+    },
+    {
+     "category": "1",
+     "conf": 0.787,
+     "bbox": [
+      0.0003125,
+      0.6104,
+      0.3993,
+      0.3883
+     ]
+    }
+   ]
+  },
+  {
+   "file": "OFB_OCELLES_1376\\1376_OFB_OCELLES_2020-03-20_Fournet-Luisans_21.JPG",
+   "max_detection_conf": 0.961,
+   "detections": [
+    {
+     "category": "1",
+     "conf": 0.00871,
+     "bbox": [
+      0.2734,
+      0.6824,
+      0.1628,
+      0.252
+     ]
+    },
+    {
+     "category": "1",
+     "conf": 0.0147,
+     "bbox": [
+      0.3184,
+      0.677,
+      0.1981,
+      0.1595
+     ]
+    },
+    {
+     "category": "1",
+     "conf": 0.437,
+     "bbox": [
+      0.2612,
+      0.6795,
+      0.2912,
+      0.3183
+     ]
+    },
+    {
+     "category": "1",
+     "conf": 0.961,
+     "bbox": [
+      0,
+      0.4754,
+      0.3437,
+      0.5195
+     ]
+    }
+   ]
+  },
+  {
+   "file": "OFB_OCELLES_1376\\1376_OFB_OCELLES_2020-03-20_Fournet-Luisans_22.JPG",
+   "max_detection_conf": 0.929,
+   "detections": [
+    {
+     "category": "1",
+     "conf": 0.929,
+     "bbox": [
+      0,
+      0.4745,
+      0.1996,
+      0.322
+     ]
+    }
+   ]
+  },
+  {
+   "file": "OFB_OCELLES_1376\\1376_OFB_OCELLES_2020-06-15_NA_23.png",
+   "max_detection_conf": 0.963,
+   "detections": [
+    {
+     "category": "1",
+     "conf": 0.963,
+     "bbox": [
+      0,
+      0.4117,
+      0.2119,
+      0.4511
+     ]
+    }
+   ]
+  },
+  {
+   "file": "OFB_OCELLES_1376\\1376_OFB_OCELLES_2020-08-19_Orchamps-Vennes_24.png",
+   "max_detection_conf": 0.928,
+   "detections": [
+    {
+     "category": "1",
+     "conf": 0.928,
+     "bbox": [
+      0.8076,
+      0.2413,
+      0.1923,
+      0.3663
+     ]
+    }
+   ]
+  },
+  {
+   "file": "OFB_OCELLES_1376\\1376_OFB_OCELLES_2020-08-19_Orchamps-Vennes_25.png",
+   "max_detection_conf": 0.949,
+   "detections": [
+    {
+     "category": "1",
+     "conf": 0.949,
+     "bbox": [
+      0.874,
+      0.2916,
+      0.1259,
+      0.3125
+     ]
+    }
+   ]
+  }
+ ],
+ "detection_categories": {
+  "1": "animal",
+  "2": "person",
+  "3": "vehicle"
+ },
+ "info": {
+  "detection_completion_time": "2023-08-18 18:29:08",
+  "format_version": "1.2",
+  "detector": "md_v5a.0.0.pt",
+  "detector_metadata": {
+   "megadetector_version": "v5a.0.0",
+   "typical_detection_threshold": 0.2,
+   "conservative_detection_threshold": 0.05
+  }
+ }
+}
