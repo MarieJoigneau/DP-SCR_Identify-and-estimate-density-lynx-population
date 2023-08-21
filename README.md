@@ -13,6 +13,8 @@ What you have :
 
 More precise README are in each part.
 
+I haven't put the Spatial Capture Recapture R script as I have taken most of the part from a Olivier Gimenez R script.   
+
 If you have any questions don't hesitate to contact me,   
 Best,   
 Marie Joigneau
