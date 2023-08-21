@@ -1,0 +1,2 @@
+;size;premodel;triplet_dist;eval_dist;CMC@1;CMC@5;mAP@1;mAP@5
+0;224;EfficientNet;squared-L2;cosine;0.437931034;0.642528736;0.437931034;0.5151341
