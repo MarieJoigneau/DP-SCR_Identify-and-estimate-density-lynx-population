@@ -9,7 +9,7 @@ Supervisor : Olivier Gimenez https://www.cefe.cnrs.fr/fr/recherche/bc/bbp/843-c/
 
 What you have :   
 - A first part presenting all my script and my folder organization necessary to do my deep learning models and predictions with some of my lighest DL models (< 100MB for github)   
-- A second part for the Office Français de la Biodiversité (OFB) or anyone wanting to do prediction with a deep learning model. It contains user guide (in French and English) and several scripts.
+- A second part for the Office Français de la Biodiversité (OFB) or anyone wanting to do prediction with a deep learning model. It contains user guide (in French and English) and several scripts.   
 More precise README are in each part.
 
 If you have any questions don't hesitate to contact me,   
