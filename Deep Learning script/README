@@ -16,6 +16,9 @@ For the script :
 - 8_individuals-corresponding-for-SCR : gives the association folder-pictures to compare with the human prediction (for Spatial Capture Recapture part)
 - Graphes report : all the graphes I have done in my internship
 
+/!\ To run a model with triplet hard semi loss (the loss function), you need to already save one. So basically to run a 2_Model-construction.py script. It is an error not solved on the net.
+Also, to save an EfficientNet model, you need to downgrade Tensorflow. Everything is explained in the 2_Model-construction.py script.
+
 
 Don't hesitate to contact me if you have any question,
 Best,
