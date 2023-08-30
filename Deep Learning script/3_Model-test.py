@@ -260,7 +260,7 @@ Values: return a csv with the parameters and the evaluation metrics CMC@k and mA
 """
 
 
-def modeltest(my_dir_split_list,my_dir_model,my_eval_distance_list,my_triplet_choice_list,my_num_classes_per_batch_list,my_num_images_per_class_list,my_dir_model_test,my_size_list,my_fold_test):
+def modeltest(my_dir_split_list,my_dir_model,my_eval_distance_list,my_triplet_choice_list,my_num_classes_per_batch_list,my_num_images_per_class_list,my_dir_model_test,my_size_list,my_fold_test,my_embedding_size_list,my_first_dense_size_list):
     
     result = []
  
@@ -344,66 +344,96 @@ def modeltest(my_dir_split_list,my_dir_model,my_eval_distance_list,my_triplet_ch
                 my_num_classes_per_batch = my_num_classes_per_batch_list[i]
                 my_num_images_per_class = my_num_images_per_class_list[i]
                 
-                if len(my_num_classes_per_batch_list)>1:
-                    save_num_classes_images_triplet_choice = str(my_size) + "size_"  + str(my_triplet_choice) + "_" + str(PREMODEL_CHOSEN) + "_NCB" + str(my_num_classes_per_batch) + "_NIC" + str(my_num_images_per_class)
-                else:
-                    save_num_classes_images_triplet_choice = str(my_size) + "size_" + str(my_triplet_choice) + "_" + str(PREMODEL_CHOSEN)
+                for k in range(len(my_embedding_size_list)):
+                    
+                    my_embedding_size = my_embedding_size_list[k]
+                    my_first_dense_size = my_first_dense_size_list[k]
+                    print("The embedding size is ",my_embedding_size)
+                    print("The first dense size is ",my_first_dense_size)
                 
-                my_dir_model_triplet = os.path.join(my_dir_model,save_num_classes_images_triplet_choice)
-                
-                print("The directory of my model is")
-                print(my_dir_model_triplet)
-                
-                # We can load the model after if needed
-                model_saved = tf.keras.models.load_model(my_dir_model_triplet)
-                
-                # -- 2) With only the dataframe -----------------------------------------------
-                
-                print("The true labels of the test dataset are ",labels_test,"\n")
-                
-                # For each evaluation distance choice :
-                for my_eval_distance in my_eval_distance_list:
+                    # Here the directory to save the model :
+                    # - either we want different size layers
+                    # - or we want to choose different premodels / size ect
+                    # - or the compositions of the batchs
+                    if len(my_embedding_size_list) > 1 :
+                        # embedding : size of the second dense
+                        # firstdense : size of the first dense
+                        save_num_classes_images_triplet_choice = str(my_size) + "size_"  + str(my_triplet_choice) + "_firstdense" + str(my_first_dense_size) + "_embedding" + str(my_embedding_size) + "_" + str(PREMODEL_CHOSEN)
+                    if len(my_num_classes_per_batch_list) > 1 :
+                        # NCB : number of class by batch
+                        # NIC : number of image by class
+                        save_num_classes_images_triplet_choice = str(my_size) + "size_"  + str(my_triplet_choice) + "_NCB" + str(my_num_classes_per_batch) + "_NIC" + str(my_num_images_per_class) + "_" + str(PREMODEL_CHOSEN)
+                    if len(my_num_classes_per_batch_list) ==1 and len(my_embedding_size_list)==1:
+                        save_num_classes_images_triplet_choice = str(my_size) + "size_" + str(my_triplet_choice) + "_" + str(PREMODEL_CHOSEN)
+                    my_dir_model_triplet = os.path.join(my_dir_model,save_num_classes_images_triplet_choice)
                     
-                    print("----- The metric of the Triplet Loss is ",my_triplet_choice,"-----------")
-                    print("The size of my picture is ",my_size)
-                    print("The metric of the k neighbors is ",my_eval_distance)
-                    print("My dataset test is ",my_fold_test)
-                    print("There are ",my_num_classes_per_batch," classes by batch")
-                    print("There are ",my_num_images_per_class," images by class in a batch")
+                    print("The directory of my model is")
+                    print(my_dir_model_triplet)
                     
-                    reid_df = predict_class_test(model_saved, images_test, labels_test,test_dataset,my_eval_distance)
+                    # We can load the model after if needed
+                    model_saved = tf.keras.models.load_model(my_dir_model_triplet)
                     
+                    # -- 2) With only the dataframe -----------------------------------------------
                     
-                    # -- 3) With the metrics applied to the dataframe -----------------------------
-
-                    cmc1,cmc5,map1,map5 = eval_metric(reid_df)
+                    print("The true labels of the test dataset are ",labels_test,"\n")
                     
-                    
-                    if len(my_num_classes_per_batch_list)>1:
-                        result_metrics = (my_size,PREMODEL_CHOSEN,my_num_classes_per_batch,my_num_images_per_class,cmc1,cmc5,map1,map5)
-                    else:
-                        result_metrics = (my_size,PREMODEL_CHOSEN,my_triplet_choice,my_eval_distance,cmc1,cmc5,map1,map5)
-                    
-                    result.append(result_metrics)
-                    
-                    print("The result is")
-                    print(result)        
+                    # For each evaluation distance choice :
+                    for my_eval_distance in my_eval_distance_list:
+                        
+                        print("----- The metric of the Triplet Loss is ",my_triplet_choice,"-----------")
+                        print("The size of my picture is ",my_size)
+                        print("The metric of the k neighbors is ",my_eval_distance)
+                        print("My dataset test is ",my_fold_test)
+                        print("There are ",my_num_classes_per_batch," classes by batch")
+                        print("There are ",my_num_images_per_class," images by class in a batch")
+                        print("The embedding size is ",my_embedding_size)
+                        print("The first dense size is ",my_first_dense_size)
+                        
+                        reid_df = predict_class_test(model_saved, images_test, labels_test,test_dataset,my_eval_distance)
+                        
+                        
+                        # -- 3) With the metrics applied to the dataframe -----------------------------
+    
+                        cmc1,cmc5,map1,map5 = eval_metric(reid_df)
+                        
+                        
+                        # Here the directory to save the model :
+                        # - either we want different size layers
+                        # - or we want to choose different premodels / size ect
+                        # - or the compositions of the batchs
+                        if len(my_embedding_size_list) > 1 :
+                            # embedding : size of the second dense
+                            # firstdense : size of the first dense
+                            result_metrics = (my_size,PREMODEL_CHOSEN,my_first_dense_size,my_embedding_size,cmc1,cmc5,map1,map5)
+                        if len(my_num_classes_per_batch_list) > 1 :
+                            # NCB : number of class by batch
+                            # NIC : number of image by class
+                            result_metrics = (my_size,PREMODEL_CHOSEN,my_num_classes_per_batch,my_num_images_per_class,cmc1,cmc5,map1,map5)
+                        if len(my_num_classes_per_batch_list) ==1 and len(my_embedding_size_list)==1:
+                            result_metrics = (my_size,PREMODEL_CHOSEN,my_triplet_choice,my_eval_distance,cmc1,cmc5,map1,map5)
+                        result.append(result_metrics)
+                        
+                        print("The result is")
+                        print(result)        
             
             
     # ======= IV/ SAVE THE RESULTS ============================================
     
-    if len(my_num_classes_per_batch_list)>1:
+    if len(my_embedding_size_list) > 1 :
+        # embedding : size of the second dense
+        # firstdense : size of the first dense
+        result_df = pd.DataFrame(result, columns=("size","premodel","size_first","size_second","CMC@1", "CMC@5", "mAP@1","mAP@5"))
+    if len(my_num_classes_per_batch_list) > 1 :
+        # NCB : number of class by batch
+        # NIC : number of image by class
         result_df = pd.DataFrame(result, columns=("size","premodel","nb_class","nb_image_class","CMC@1", "CMC@5", "mAP@1","mAP@5"))
-    else:
+    if len(my_num_classes_per_batch_list) ==1 and len(my_embedding_size_list)==1:
         result_df = pd.DataFrame(result, columns=("size","premodel","triplet_dist","eval_dist","CMC@1", "CMC@5", "mAP@1","mAP@5"))
-         
+
     print("The dataframe with all the result is :")
     print(result_df)
         
-    if len(my_num_classes_per_batch_list)>1:
-        name_csv = "results_nbclass_nbimage.csv"
-    else:
-        name_csv = "results_tripletdist_evaldist.csv"
+    name_csv = "results_all_test.csv"
         
     path_save = os.path.join(my_dir_model_test,name_csv)
     result_df.to_csv(path_save, sep=';')
@@ -422,18 +452,18 @@ def modeltest(my_dir_split_list,my_dir_model,my_eval_distance_list,my_triplet_ch
 
 # SIZE : size of the pictures
 # For testing one model :
-ALL_SIZE = [224]
+ALL_SIZE = [260]
 # For testing different models :
 #ALL_SIZE = [224, 240, 260, 300, 380, 456, 528, 600]
 
 # NUM_CLASSES_PER_BATCH : number of class by batch
 # NUM_IMAGES_PER_CLASS : number of image by class by batch
 # If you want to choose a single model :
-NUM_CLASSES_PER_BATCH = [2]
-NUM_IMAGES_PER_CLASS = [2]
+#NUM_CLASSES_PER_BATCH = [15]
+#NUM_IMAGES_PER_CLASS = [2]
 # If you want to test different models
-#NUM_CLASSES_PER_BATCH = [3,10,15]
-#NUM_IMAGES_PER_CLASS = [10,3,2]
+NUM_CLASSES_PER_BATCH = [3,10,15,6,3,20,10,30,15]
+NUM_IMAGES_PER_CLASS = [10,3,2,10,20,3,6,2,4]
 
 # TRIPLET_CHOICE : choice of the metric of the triplet loss function
 # - If you want to choose a single model :
@@ -441,10 +471,18 @@ TRIPLET_CHOICE = ["squared-L2"]
 # - If you want to test different model by modifying triplet distance :
 #TRIPLET_CHOICE = ["L2","squared-L2","angular"]
 
+# Here we are extracting128-dimensional embedding vectors.
+# If you want to choose a single model :
+EMBEDDING_SIZE = [128]
+FIRST_DENSE = [2048]
+# If you want to test different models
+#EMBEDDING_SIZE = [64,64,64,128,128,128]
+#FIRST_DENSE = [2048,1024,512,2048,1024,512]
+
 # EVAL_DISTANCE : metric of the evaluation distance in the k neighbors
-EVAL_DISTANCE = ["cosine"]
+#EVAL_DISTANCE = ["cosine"]
 # If you want to search the best model by modifying:
-# EVAL_DISTANCE = ["l2","euclidean","cosine"]
+EVAL_DISTANCE = ["cosine"]
 
 # PREMODEL_CHOSEN
 # - Here we put the different pre-models
@@ -457,28 +495,38 @@ PREMODEL_CHOSEN = "EfficientNet"
 # ====== CHOOSE THE DIRECTORIES ===============================================
 # =============================================================================
 
+# MAIN DIRECTORY : Where we have everything except the code
+dir_main = 'D:/deep-learning_re-id_gimenez'
+# dir_main_data = "/home/sdb1"
+# dir_main_save = "/home/data/marie"
+dir_main_data = dir_main
+dir_main_save = dir_main
+#print("The main directory is ",dir_main,"\n")
+
 # DIR SPLIT : directories with split images which will be used for the deep-learning
 # We have different sizes depending of the different models to test
 dir_split_all = []
 for size_chosen in ALL_SIZE:
     folder_animal_split = 'dataset_split_' + str(size_chosen)
-    dir_split = os.path.join("D:/deep-learning_re-id_gimenez/1_Pre-processing", folder_animal_split)
+    dir_split = os.path.join(dir_main_data,"1_Pre-processing_min_pic_15", folder_animal_split)
     dir_split_all = dir_split_all + [dir_split]
 print("The directory of the splitted pictures is ",dir_split_all,"\n")
 
 # FOLDER TEST : folder with all the pictures to test
 fold_test = "test_1-photo-supprimee"
 
-# FOLDER MODEL CONSTRUCTION : where the mode is saved
-dir_model = "D:/deep-learning_re-id_gimenez/2_Model-construction/result_model"
+# FOLDER MODEL CONSTRUCTION : where the model, its history and mapping will be saved
+dir_construction = os.path.join(dir_main_save,"2_Model-construction_batchcompo")
+# The model directory :
+dir_model = os.path.join(dir_construction,"result_model")
 
 # FOLDER RESULT METRICS : where the results of the tests will be saved
-dir_model_test = "D:/deep-learning_re-id_gimenez/3_Model-test"
+dir_model_test = os.path.join(dir_main_save,"3_Model-test")
 
 # =============================================================================
 # ====== LAUNCH THE SCRIPT ====================================================
 # =============================================================================
 
-modeltest(my_dir_split_list=dir_split_all,my_dir_model=dir_model,my_eval_distance_list=EVAL_DISTANCE,my_triplet_choice_list=TRIPLET_CHOICE,my_num_classes_per_batch_list=NUM_CLASSES_PER_BATCH,my_num_images_per_class_list=NUM_IMAGES_PER_CLASS,my_dir_model_test=dir_model_test,my_size_list=ALL_SIZE,my_fold_test=fold_test)
+modeltest(my_dir_split_list=dir_split_all,my_dir_model=dir_model,my_eval_distance_list=EVAL_DISTANCE,my_triplet_choice_list=TRIPLET_CHOICE,my_num_classes_per_batch_list=NUM_CLASSES_PER_BATCH,my_num_images_per_class_list=NUM_IMAGES_PER_CLASS,my_dir_model_test=dir_model_test,my_size_list=ALL_SIZE,my_fold_test=fold_test,my_embedding_size_list=EMBEDDING_SIZE,my_first_dense_size_list=FIRST_DENSE)
 
 

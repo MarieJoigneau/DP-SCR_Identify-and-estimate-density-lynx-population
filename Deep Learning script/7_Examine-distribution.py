@@ -477,7 +477,7 @@ def distribution(my_dir_split,my_dir_best_model,my_folder_test):
             ind_folder_all.alone_and_new[i] = "yes"
     
     # We save it
-    path_save = "D:/deep-learning_re-id_gimenez/7_Examine-distribution/result_distribution.csv"
+    path_save = "D:/deep-learning_re-id_gimenez/7_Examine-distribution/result_distributionTRAIN.csv"
     ind_folder_all.to_csv(path_save, sep=';',index=False)
 
 
@@ -497,7 +497,7 @@ EVAL_DISTANCE = 'cosine'
 #EVAL_DISTANCE = ["l2","euclidean","cosine"]
 
 # Treshold to know if it's a new individual or not
-TRESHOLD = 0.56
+TRESHOLD = 0.4
 
 
 # =============================================================================
@@ -505,16 +505,16 @@ TRESHOLD = 0.56
 # =============================================================================
 
 # FOLDER SPLIT : Folder with split images which will be used for the deep-learning
-dir_split = "D:/deep-learning_re-id_gimenez/1_Pre-processing/dataset_split_224"
+dir_split = "D:/deep-learning_re-id_gimenez/1_Pre-processing_min_pic_15/dataset_split_260"
 print("The directory of the splitted pictures is ",dir_split,"\n")
 
 # FOLDER PICTURES
-folder_test = "test_pour-treshold-avec-1-photo"
+folder_test = "train"
 dir_pic_SCR = os.path.join(dir_split,folder_test)
 print("dir_pic_SCR is ",dir_pic_SCR)
 
 # BEST MODEL DIRECTORY : Where the best model is
-dir_best_model = "D:/deep-learning_re-id_gimenez/2_Model-construction/result_model/224size_squared-L2_EfficientNet"
+dir_best_model = "D:/deep-learning_re-id_gimenez/2_Model-construction_batchcompo/result_model/260size_squared-L2_NCB10_NIC3_EfficientNet"
 
 # =============================================================================
 # ====== LAUNCH THE SCRIPT ====================================================

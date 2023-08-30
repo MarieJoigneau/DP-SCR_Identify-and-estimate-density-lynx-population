@@ -307,7 +307,7 @@ EVAL_DISTANCE = 'cosine'
 #EVAL_DISTANCE = ["l2","euclidean","cosine"]
 
 # Treshold to know if it's a new individual or not
-TRESHOLD = 0.56
+TRESHOLD = 0.4
 
 
 # =============================================================================
@@ -316,7 +316,7 @@ TRESHOLD = 0.56
 
 
 # FOLDER PICTURES TO PREDICT : where the pictures to predict are
-dir_pic = "D:/deep-learning_re-id_gimenez/6_Model-prediction_new-dataset/dataset_to_predictTEST"
+dir_pic = "D:/deep-learning_re-id_gimenez/6_Model-prediction_new-dataset/dataset_to_predict"
 print("dir_pic is ",dir_pic)
 
 # FOLDER DATASET NEW PREDICTED : where the new identities are predicted and put in folders
@@ -324,7 +324,7 @@ dir_dataset_new = "D:/deep-learning_re-id_gimenez/6_Model-prediction_new-dataset
 print("The directory of the new dataset pictures is ",dir_dataset_new,"\n")
 
 # BEST MODEL DIRECTORY : Where the best model is
-dir_best_model = "D:/deep-learning_re-id_gimenez/2_Model-construction/result_model/300size_angular_EfficientNet"
+dir_best_model = "D:/deep-learning_re-id_gimenez/2_Model-construction_batchcompo/result_model/260size_squared-L2_NCB10_NIC3_EfficientNet"
 
 # =============================================================================
 # ====== LAUNCH THE SCRIPT ====================================================

@@ -116,7 +116,7 @@ Values:
 """
 
 
-def construct_model(my_premodel, my_embedding_size, my_triplet_choice, my_epoch_number, my_train_ds, my_val_ds):
+def construct_model(my_premodel, my_embedding_size, my_triplet_choice, my_epoch_number, my_train_ds, my_val_ds,my_first_dense_size):
     
     # ======= I/ PRE-MODEL SETTING ============================================
     
@@ -171,7 +171,7 @@ def construct_model(my_premodel, my_embedding_size, my_triplet_choice, my_epoch_
     # - parameters = 1050624
     # => relu : rectified linear units (ReLUs) = if number positive, keep it. Otherwise you get a zero
     # Dense layer : reduce the dimension of the input layer (n neurons) to the output layer (n-k neurons)
-    x = keras.layers.Dense(2048, activation='relu')(x)  # 2048 neurons, activation function = relu
+    x = keras.layers.Dense(my_first_dense_size, activation='relu')(x)  # 2048 neurons, activation function = relu
 
     # LAYER ? : Dropout
     #x = keras.layers.Dropout(dropout)(x)
@@ -307,7 +307,7 @@ Construct different types of deep learning model depending on :
 Values: /
 """
 
-def modelconstruction(my_dir_augmentation, my_dir_split_list,my_size_list, my_num_classes_per_batch_list, my_num_images_per_class_list,my_embedding_size,my_triplet_choice_list,my_epoch_number,my_path_image_test,my_dir_history_plot,my_dir_model,my_dir_mapping,my_mapping_or_not,my_folder_augmentation,my_premodel_type_list):
+def modelconstruction(my_dir_augmentation, my_dir_split_list,my_size_list, my_num_classes_per_batch_list, my_num_images_per_class_list,my_embedding_size_list,my_triplet_choice_list,my_epoch_number,my_path_image_test,my_dir_history_plot,my_dir_model,my_dir_mapping,my_mapping_or_not,my_folder_augmentation,my_premodel_type_list,my_first_dense_size_list):
     
     # We initialize the directory of the splitted pictures
     nb_dir_split = 0
@@ -552,55 +552,67 @@ def modelconstruction(my_dir_augmentation, my_dir_split_list,my_size_list, my_nu
                     print("The type of my pre-model is ",my_premodel_type)
             
                     
-                    # -- 2) The model and its history -------------------------
+                    for k in range(len(my_embedding_size_list)):
+                        
+                        my_embedding_size = my_embedding_size_list[k]
+                        my_first_dense_size = my_first_dense_size_list[k]
+                        print("The embedding size is ",my_embedding_size)
+                        print("The first dense size is ",my_first_dense_size)
                 
-                    model, history = construct_model(premodel, my_embedding_size, my_triplet_choice, my_epoch_number,train_ds,val_ds)
+                        # -- 2) The model and its history -------------------------
+                
+                        model, history = construct_model(premodel, my_embedding_size, my_triplet_choice, my_epoch_number,train_ds,val_ds,my_first_dense_size)
                 
                 
-                    # -- 3) Save the model ------------------------------------
-                
+                        # -- 3) Save the model ------------------------------------
                     
-                    # Here the directory to save the model :
-                    # - either we want to choose different premodels / size ect
-                    # - or the compositions of the batchs
-                    if len(my_num_classes_per_batch_list) > 1 :
-                        # NCB : number of class by batch
-                        # NIC : number of image by class
-                        save_num_classes_images_triplet_choice = str(my_size) + "size_"  + str(my_triplet_choice) + "_NCB" + str(my_num_classes_per_batch) + "_NIC" + str(my_num_images_per_class) + "_model_" + str(my_premodel_type)
-                    else:
-                        save_num_classes_images_triplet_choice = str(my_size) + "size_" + str(my_triplet_choice) + "_model_" + str(my_premodel_type)
-                    my_dir_model_eval = os.path.join(my_dir_model,save_num_classes_images_triplet_choice)
-                    # We create the folder
-                    os.makedirs(my_dir_model_eval)
+                        
+                        # Here the directory to save the model :
+                        # - either we want different size layers
+                        # - or we want to choose different premodels / size ect
+                        # - or the compositions of the batchs
+                        if len(my_embedding_size_list) > 1 :
+                            # embedding : size of the second dense
+                            # firstdense : size of the first dense
+                            save_num_classes_images_triplet_choice = str(my_size) + "size_"  + str(my_triplet_choice) + "_firstdense" + str(my_first_dense_size) + "_embedding" + str(my_embedding_size) + "_" + str(my_premodel_type)
+                        if len(my_num_classes_per_batch_list) > 1 :
+                            # NCB : number of class by batch
+                            # NIC : number of image by class
+                            save_num_classes_images_triplet_choice = str(my_size) + "size_"  + str(my_triplet_choice) + "_NCB" + str(my_num_classes_per_batch) + "_NIC" + str(my_num_images_per_class) + "_" + str(my_premodel_type)
+                        if len(my_num_classes_per_batch_list) ==1 and len(my_embedding_size_list)==1:
+                            save_num_classes_images_triplet_choice = str(my_size) + "size_" + str(my_triplet_choice) + "_" + str(my_premodel_type)
+                        my_dir_model_eval = os.path.join(my_dir_model,save_num_classes_images_triplet_choice)
+                        # We create the folder
+                        os.makedirs(my_dir_model_eval)
+                        
+                        
+                        print(tensorflow.__version__)
+                        # https://discuss.tensorflow.org/t/using-efficientnetb0-and-save-model-will-result-unable-to-serialize-2-0896919-2-1128857-2-1081853-to-json-unrecognized-type-class-tensorflow-python-framework-ops-eagertensor/12518/10
+                        # Here the tensorflow version is 2.11.0
+                        # But this version doesn't work to save EfficientNet model
+                        # "TypeError: Unable to serialize [2.0896919 2.1128857 2.1081853] to JSON. Unrecognized type <class 'tensorflow.python.framework.ops.EagerTensor'>."
+                        # Downgrading from 2.10 to 2.9 solved the issue
                     
+                        # https://stackoverflow.com/questions/65085962/downgrading-or-installing-earlier-version-of-a-package-with-pip
+                        # On the prompt
+                        # To check the packages versions : pip freeze
+                        # To downgrade : pip install --upgrade tensorflow==2.9.1
                     
-                    print(tensorflow.__version__)
-                    # https://discuss.tensorflow.org/t/using-efficientnetb0-and-save-model-will-result-unable-to-serialize-2-0896919-2-1128857-2-1081853-to-json-unrecognized-type-class-tensorflow-python-framework-ops-eagertensor/12518/10
-                    # Here the tensorflow version is 2.11.0
-                    # But this version doesn't work to save EfficientNet model
-                    # "TypeError: Unable to serialize [2.0896919 2.1128857 2.1081853] to JSON. Unrecognized type <class 'tensorflow.python.framework.ops.EagerTensor'>."
-                    # Downgrading from 2.10 to 2.9 solved the issue
-                
-                    # https://stackoverflow.com/questions/65085962/downgrading-or-installing-earlier-version-of-a-package-with-pip
-                    # On the prompt
-                    # To check the packages versions : pip freeze
-                    # To downgrade : pip install --upgrade tensorflow==2.9.1
-                
-                    # https://www.tensorflow.org/tutorials/keras/save_and_load?hl=fr
-                    # We can then save the model
-                    model.save(my_dir_model_eval)
+                        # https://www.tensorflow.org/tutorials/keras/save_and_load?hl=fr
+                        # We can then save the model
+                        model.save(my_dir_model_eval)
+                        
+                        # ======= III/ EVALUATION HELPING FOR THE MODEL CONSTRUCTION ================
+                        # -- 1) Intern evaluation by plotting history ---------------------------------
                     
-                    # ======= III/ EVALUATION HELPING FOR THE MODEL CONSTRUCTION ================
-                    # -- 1) Intern evaluation by plotting history ---------------------------------
-                
-                    print("The training loss are ", history.history['loss'])
-                    print("The validation loss are ", history.history['val_loss'])
-                    # We name the folder depending of the model caracteristics
-                    my_dir_history_plot_eval = os.path.join(my_dir_history_plot,save_num_classes_images_triplet_choice)
-                    # We create the folder
-                    os.makedirs(my_dir_history_plot_eval)
-                    # We save the plot
-                    plot_training(history, my_embedding_size, my_dir_history_plot_eval)
+                        print("The training loss are ", history.history['loss'])
+                        print("The validation loss are ", history.history['val_loss'])
+                        # We name the folder depending of the model caracteristics
+                        my_dir_history_plot_eval = os.path.join(my_dir_history_plot,save_num_classes_images_triplet_choice)
+                        # We create the folder
+                        os.makedirs(my_dir_history_plot_eval)
+                        # We save the plot
+                        plot_training(history, my_embedding_size, my_dir_history_plot_eval)
                 
                 
         # -- 2) Intern evaluation on the premodels by mapping -----------------
@@ -661,12 +673,20 @@ ALL_SIZE = [224]
 # If you want to choose a single model :
 NUM_CLASSES_PER_BATCH = [2]
 NUM_IMAGES_PER_CLASS = [2]
+#NUM_CLASSES_PER_BATCH = [30,40,50,30,40,50,12,24,48,20,30,40,50]
+#NUM_IMAGES_PER_CLASS = [3,3,3,4,4,4,10,10,10,6,6,6,6]
 # If you want to test different models
-#NUM_CLASSES_PER_BATCH = [3,10,15]
-#NUM_IMAGES_PER_CLASS = [10,3,2]
+#NUM_CLASSES_PER_BATCH = [3,10,15,6,3,20,10,30,15]
+#NUM_IMAGES_PER_CLASS = [10,3,2,10,20,3,6,2,4]
 
 # Here we are extracting128-dimensional embedding vectors.
-EMBEDDING_SIZE = 128
+# If you want to choose a single model :
+EMBEDDING_SIZE = [128]
+FIRST_DENSE = [2048]
+# If you want to test different models
+# EMBEDDING_SIZE = [64,64,64,128,128,128]
+# FIRST_DENSE = [2048,1024,512,2048,1024,512]
+
 NB_EPOCH = 2
 
 # TRIPLET_CHOICE : choice of the metric of the triplet loss function
@@ -684,11 +704,19 @@ MAPPING_OR_NOT = "no"
 # /!\ For ResNet152 et DenseNet201 we need to put ALL_SIZE = 224
 # /!\ For the different EfficientNet model, the ALL_SIZE depend of the model
 # PREMODEL = ["EfficientNet","ResNet152","DenseNet201"]
-PREMODEL_CHOSEN = ["DenseNet201"]
+PREMODEL_CHOSEN = ["EfficientNet"]
 
 # =============================================================================
 # ====== CHOOSE THE DIRECTORIES ===============================================
 # =============================================================================
+
+# MAIN DIRECTORY : Where we have everything except the code
+dir_main = 'D:/deep-learning_re-id_gimenez'
+#dir_main_data = "/home/sdb1"
+#dir_main_save = "/home/data/marie"
+dir_main_data = dir_main
+dir_main_save = dir_main
+#print("The main directory is ",dir_main,"\n")
 
 # FOLDER SPLIT : Folder with split images which will be used for the deep-learning
 # One number for 1 picture size (n*n)
@@ -696,18 +724,18 @@ PREMODEL_CHOSEN = ["DenseNet201"]
 dir_split_all = []
 for size_chosen in ALL_SIZE:
     folder_animal_split = 'dataset_split_' + str(size_chosen)
-    dir_split = os.path.join("D:/deep-learning_re-id_gimenez/1_Pre-processingTEST", folder_animal_split)
+    dir_split = os.path.join(dir_main_data,"1_Pre-processingTEST", folder_animal_split)
     dir_split_all = dir_split_all + [dir_split]
 print("The directory of the splitted pictures is ",dir_split_all,"\n")
 
 # FOLDER DATA AUGMENTATION : Data augmentation of the pictures :
-# folder_animal_augmentation = str(input("What is the name of your data augmentation folder? : "))
+#folder_augmentation = "train_augmentation"
 folder_augmentation = "train_augmentation"
 dir_augmentation = os.path.join(dir_split, folder_augmentation)
 print("The directory of the data augmentation pictures is ", dir_augmentation, "\n")
 
 # FOLDER MODEL CONSTRUCTION : where the model, its history and mapping will be saved
-dir_construction = "D:/deep-learning_re-id_gimenez/2_Model-constructionTEST"
+dir_construction = os.path.join(dir_main_save,"2_Model-constructionTEST")
 # The model directory :
 dir_model = os.path.join(dir_construction,"result_model")
 # The mapping directory and its example picture
@@ -721,5 +749,5 @@ dir_history_plot = os.path.join(dir_construction,"result_plot_loss")
 # ====== LAUNCH THE SCRIPT ====================================================
 # =============================================================================
 
-modelconstruction(my_dir_augmentation=dir_augmentation,my_dir_split_list=dir_split_all,my_size_list=ALL_SIZE,my_num_classes_per_batch_list=NUM_CLASSES_PER_BATCH,my_num_images_per_class_list=NUM_IMAGES_PER_CLASS,my_embedding_size=EMBEDDING_SIZE,my_triplet_choice_list=TRIPLET_CHOICE,my_epoch_number=NB_EPOCH,my_path_image_test=path_image_test,my_dir_history_plot = dir_history_plot,my_dir_model=dir_model,my_dir_mapping=dir_mapping,my_mapping_or_not=MAPPING_OR_NOT,my_folder_augmentation=folder_augmentation,my_premodel_type_list=PREMODEL_CHOSEN)
+modelconstruction(my_dir_augmentation=dir_augmentation,my_dir_split_list=dir_split_all,my_size_list=ALL_SIZE,my_num_classes_per_batch_list=NUM_CLASSES_PER_BATCH,my_num_images_per_class_list=NUM_IMAGES_PER_CLASS,my_embedding_size_list=EMBEDDING_SIZE,my_triplet_choice_list=TRIPLET_CHOICE,my_epoch_number=NB_EPOCH,my_path_image_test=path_image_test,my_dir_history_plot = dir_history_plot,my_dir_model=dir_model,my_dir_mapping=dir_mapping,my_mapping_or_not=MAPPING_OR_NOT,my_folder_augmentation=folder_augmentation,my_premodel_type_list=PREMODEL_CHOSEN,my_first_dense_size_list=FIRST_DENSE)
 

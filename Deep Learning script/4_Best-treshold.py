@@ -221,7 +221,6 @@ the treshold in a csv
 Values: /
 """
 
-
 def best_treshold(my_dir_split,my_dir_best_model,my_treshold_list,my_dir_treshold,my_folder_test):
     
     # ======= I/ LOAD THE MODEL ===============================================
@@ -295,6 +294,8 @@ def best_treshold(my_dir_split,my_dir_best_model,my_treshold_list,my_dir_treshol
     print(reid_df)
      
     result = []
+    
+    return reid_df, newid_df
      
     for my_treshold_ind in my_treshold_list:
 
@@ -328,7 +329,7 @@ def best_treshold(my_dir_split,my_dir_best_model,my_treshold_list,my_dir_treshol
     
     # We save the results in a csv
     path_save = os.path.join(my_dir_treshold,"result_treshold.csv")
-    result_df.to_csv(path_save, sep=';')
+    result_df.to_csv(path_save, sep=';', index=False)
 
    
 
@@ -349,13 +350,14 @@ EVAL_DISTANCE = 'cosine'
 #EVAL_DISTANCE = ["l2","euclidean","cosine"]
 
 TRESHOLD = np.arange(0, 1.05, 0.01)
+#TRESHOLD = [0.5,0.7]
 
 # =============================================================================
 # ====== CHOOSE THE DIRECTORIES ===============================================
 # =============================================================================
 
 # FOLDER SPLIT : Folder with split images which will be used for the deep-learning)
-dir_split = "D:/deep-learning_re-id_gimenez/1_Pre-processing/dataset_split_224"
+dir_split = "D:/deep-learning_re-id_gimenez/1_Pre-processing/dataset_split_260"
 print("The directory of the splitted pictures is ",dir_split,"\n")
 
 # FOLDER DATASET TEST : subfolder of DIR-SPLIT where the pictures are
@@ -366,9 +368,8 @@ folder_test = "test_pour-treshold-avec-1-photo"
 # - result of the best treshold in a csv
 dir_treshold = "D:/deep-learning_re-id_gimenez/4_Best-treshold"
 
-# FOLDER PREDICTION TEST : where we test different prediction depending of the treshold
-dir_pred_test = "D:/deep-learning_re-id_gimenez/4_Best-treshold/dataset_treshold"
-print("dir_pred_test is ",dir_pred_test)
+# BEST MODEL DIRECTORY : Where the best model is
+dir_best_model = "D:/deep-learning_re-id_gimenez/2_Model-construction_batchcompo/result_model/260size_squared-L2_NCB10_NIC3_EfficientNet"
 
 # =============================================================================
 # ====== LAUNCH THE SCRIPT ====================================================
@@ -377,9 +378,7 @@ print("dir_pred_test is ",dir_pred_test)
 #disable chained assignments
 pd.options.mode.chained_assignment = None 
 
-best_treshold(my_dir_split=dir_split,my_dir_pred_test=dir_pred_test,my_treshold_list=TRESHOLD,my_dir_treshold=dir_treshold,my_folder_test=folder_test)
-
-
+a,b = best_treshold(my_dir_split=dir_split,my_dir_best_model=dir_best_model,my_treshold_list=TRESHOLD,my_dir_treshold=dir_treshold,my_folder_test=folder_test)
 
 
 
