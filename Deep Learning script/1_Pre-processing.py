@@ -1061,7 +1061,7 @@ def preprocessing(nb_pic_aug,my_dir_augmentation,my_dir_pop,my_megadetect_path,m
 SIZE = 300 
 
 # MEGADETECTOR_PATH : path of the megadetector file
-MEGADETECTOR_PATH = "1_Pre-processing/megadetector/output_3ind.json"
+MEGADETECTOR_PATH = "1_Pre-processing/megadetector/output.json"
 
 # NB_PIC_AUGMENT : the number of picture you want for each individual. Necessary to choose it using the first step.
 NB_PIC_AUGMENT = 200
@@ -1072,11 +1072,13 @@ NB_PIC_AUGMENT = 200
 # =============================================================================
 
 # MAIN DIRECTORY : Where we have everything except the code
-dir_main = 'D:/deep-learning_re-id_gimenez'
+#dir_main = 'D:/deep-learning_re-id_gimenez'
+dir_main = "D:/deep-learning_re-id_gimenez/OLIVIER/A envoyer OFB panthere"
 print("The main directory is ",dir_main,"\n")
 
 # FOLDER RAW : Folder with all the raw pictures of the population
-folder_raw_animal = os.path.join("0_dataset_Marie","0_dataset_Marie_3ind")
+#folder_raw_animal = os.path.join("0_dataset_Marie","0_dataset_Marie_3ind")
+folder_raw_animal = "0_dataset_raw"
 dir_pop = os.path.join(dir_main, folder_raw_animal)
 print("The directory with all the individuals is ",dir_pop,"\n")
 
@@ -1114,9 +1116,10 @@ preprocessing(nb_pic_aug = NB_PIC_AUGMENT,my_dir_augmentation = dir_augmentation
 
 # Then we copy theses files in different sizes to test different models
 # All the size to test : 224, 240, 260, 300, 380, 456, 528, 600 (EfficientNetB0 to B7)
-ALL_SIZE = [224, 260] # We don't write 300 because it's the original size chosen
+ALL_SIZE = [260] # We don't write 300 because it's the original size chosen
 for my_size in ALL_SIZE:
-    resize_all_pic_all_files("D:/deep-learning_re-id_gimenez/1_Pre-processing",my_size)
+    #resize_all_pic_all_files("D:/deep-learning_re-id_gimenez/1_Pre-processing",my_size)
+    resize_all_pic_all_files("D:/deep-learning_re-id_gimenez/OLIVIER/A envoyer OFB panthere/1_Pre-processing",my_size)
 
 
 
