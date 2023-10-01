@@ -711,7 +711,8 @@ PREMODEL_CHOSEN = ["EfficientNet"]
 # =============================================================================
 
 # MAIN DIRECTORY : Where we have everything except the code
-dir_main = 'D:/deep-learning_re-id_gimenez'
+#dir_main = 'D:/deep-learning_re-id_gimenez'
+dir_main = "D:/deep-learning_re-id_gimenez/OLIVIER/A envoyer OFB lynx"
 #dir_main_data = "/home/sdb1"
 #dir_main_save = "/home/data/marie"
 dir_main_data = dir_main
