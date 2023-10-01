@@ -18,6 +18,7 @@ This part : Here we will prepare the pictures to construct and test deep learnin
 
 import os
 from PIL import Image
+from PIL import ImageFile, Image
 
 
 # =============================================================================
@@ -72,6 +73,8 @@ def resize_all_pic_all_files (my_dir_pic_OFB,my_new_size):
     # https://www.askpython.com/python/examples/crop-an-image-in-python (crop an image)  
     # https://stackoverflow.com/questions/6444548/how-do-i-get-the-picture-size-with-pil (get picture size)  
     
+    ImageFile.LOAD_TRUNCATED_IMAGES = True # For truncated pictures (https://stackoverflow.com/questions/60584155/oserror-image-file-is-truncated)
+    
     # For each individual :
     for ind in labels_ind:
         
@@ -109,14 +112,14 @@ def resize_all_pic_all_files (my_dir_pic_OFB,my_new_size):
 # =============================================================================
 
 # SIZE : size of the pictures
-SIZE = int(input("Write here the size you want / Ecrivez ici la taille que vous desirez ")) # 224
+SIZE = int(input("Write here the size you want / Ecrivez ici la taille que vous desirez ")) # 260
 
 # =============================================================================
 # ====== CHOOSE THE DIRECTORIES ===============================================
 # =============================================================================
 
 
-dir_pic_OFB = input("Write here the directory of the OFB folder (end by '/OFB') / Ecrivez ici le chemin d’acces du dossier OFB (fini par /OFB) ") # "D:/OneDrive/Stage M2 - Montpellier Gimenez/PARTIE 1 - deep learning/code_propreGITHUB/View of my folders/OFB"
+dir_pic_OFB = str(input("Write here the directory of the OFB folder (end by '/OFB lynx' or '/OFB jaguar') / Ecrivez ici le chemin d’acces du dossier OFB (fini par '/OFB lynx' ou '/OFB jaguar') ")) # D:/OneDrive/Stage M2 - Montpellier Gimenez/OLIVIER/A envoyer OFB lynx/Deep learning lynx - prediction/OFB lynx
 
 
 # =============================================================================
