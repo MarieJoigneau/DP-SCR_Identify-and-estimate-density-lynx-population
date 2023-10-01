@@ -459,11 +459,11 @@ ALL_SIZE = [260]
 # NUM_CLASSES_PER_BATCH : number of class by batch
 # NUM_IMAGES_PER_CLASS : number of image by class by batch
 # If you want to choose a single model :
-#NUM_CLASSES_PER_BATCH = [15]
-#NUM_IMAGES_PER_CLASS = [2]
+NUM_CLASSES_PER_BATCH = [10]
+NUM_IMAGES_PER_CLASS = [3]
 # If you want to test different models
-NUM_CLASSES_PER_BATCH = [3,10,15,6,3,20,10,30,15]
-NUM_IMAGES_PER_CLASS = [10,3,2,10,20,3,6,2,4]
+#NUM_CLASSES_PER_BATCH = [3,10,15,6,3,20,10,30,15]
+#NUM_IMAGES_PER_CLASS = [10,3,2,10,20,3,6,2,4]
 
 # TRIPLET_CHOICE : choice of the metric of the triplet loss function
 # - If you want to choose a single model :
@@ -496,7 +496,8 @@ PREMODEL_CHOSEN = "EfficientNet"
 # =============================================================================
 
 # MAIN DIRECTORY : Where we have everything except the code
-dir_main = 'D:/deep-learning_re-id_gimenez'
+#dir_main = 'D:/deep-learning_re-id_gimenez'
+dir_main = "D:/deep-learning_re-id_gimenez/OLIVIER/A envoyer OFB jaguar"
 # dir_main_data = "/home/sdb1"
 # dir_main_save = "/home/data/marie"
 dir_main_data = dir_main
@@ -508,7 +509,7 @@ dir_main_save = dir_main
 dir_split_all = []
 for size_chosen in ALL_SIZE:
     folder_animal_split = 'dataset_split_' + str(size_chosen)
-    dir_split = os.path.join(dir_main_data,"1_Pre-processing_min_pic_15", folder_animal_split)
+    dir_split = os.path.join(dir_main_data,"1_Pre-processing_jaguar", folder_animal_split)
     dir_split_all = dir_split_all + [dir_split]
 print("The directory of the splitted pictures is ",dir_split_all,"\n")
 
@@ -516,7 +517,7 @@ print("The directory of the splitted pictures is ",dir_split_all,"\n")
 fold_test = "test_1-photo-supprimee"
 
 # FOLDER MODEL CONSTRUCTION : where the model, its history and mapping will be saved
-dir_construction = os.path.join(dir_main_save,"2_Model-construction_batchcompo")
+dir_construction = os.path.join(dir_main_save,"2_Model-construction_jaguar")
 # The model directory :
 dir_model = os.path.join(dir_construction,"result_model")
 
