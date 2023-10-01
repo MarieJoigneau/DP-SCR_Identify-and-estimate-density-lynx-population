@@ -101,6 +101,9 @@ def filter_by_metadata(my_dir_metadata,my_predict_dataset):
             ID_chosen = metadata.lynx_ID[metadata.place==place_chosen].tolist()
             print(ID_chosen)
     
+    # We keep the individual to predict, named '0new'
+    ID_chosen = ID_chosen + ["0new"]
+    
     # We take only the pictures of the individual corresponding to the filter needed
     my_predict_dataset = my_predict_dataset.loc[my_predict_dataset['individual'].isin(ID_chosen)]
     print(my_predict_dataset)
