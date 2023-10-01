@@ -70,7 +70,7 @@ def filter_by_metadata(my_dir_metadata,my_predict_dataset):
     print(metadata)
     
     year_chosen = input("Choose the year you want (none if not) / Choisissez l'année à filtrer (écrivez none sinon) ") #2006
-    place_chosen = input("Choose the place you want (none if not) / Choisissez la date à filtrer (écrivez none sinon) ") #A
+    place_chosen = input("Choose the place you want (none if not) / Choisissez le lieu à filtrer (écrivez none sinon) ") #A
     
     if year_chosen != "none" or place_chosen != "none":
         
@@ -101,6 +101,9 @@ def filter_by_metadata(my_dir_metadata,my_predict_dataset):
             ID_chosen = metadata.lynx_ID[metadata.place==place_chosen].tolist()
             print(ID_chosen)
     
+    # We keep the individual to predict, named '0new'
+    ID_chosen = ID_chosen + ["0new"]
+    
     # We take only the pictures of the individual corresponding to the filter needed
     my_predict_dataset = my_predict_dataset.loc[my_predict_dataset['individual'].isin(ID_chosen)]
     print(my_predict_dataset)
@@ -108,6 +111,7 @@ def filter_by_metadata(my_dir_metadata,my_predict_dataset):
     return(my_predict_dataset)
 
 
+#filter_by_metadata('D:/OneDrive/Stage M2 - Montpellier Gimenez/OLIVIER/A envoyer OFB lynx/Deep learning lynx - prediction/OFB lynx/metadata.csv',a,11)
 
 
 """
@@ -293,8 +297,7 @@ def predict_already_dataset(my_dir_predict):
     
     # Number of individuals to predict (not the entire dataset)
     number_0new = len(os.listdir(dir_new_ind))
-
-
+    
     # -- 3) Filter the dataframe by place and date ----------------------------
 
     # Ask the user if he want to do the filtering
@@ -304,7 +307,8 @@ def predict_already_dataset(my_dir_predict):
     if filter_or_not == "yes":
         predict_dataset = filter_by_metadata(dir_metadata,predict_dataset)
 
-
+    
+    
     # -- 4) The prediction images and labels ----------------------------------
 
     images_pred, labels_pred = [], []
@@ -364,7 +368,7 @@ TRESHOLD_IND = float(input("Write here the treshold / Ecrivez le seuil")) #0.56
 # ====== CHOOSE THE DIRECTORIES ===============================================
 # =============================================================================
 
-dir_pic_OFB = input("Write here the directory of the OFB folder (end by '/OFB') / Ecrivez ici le chemin d’acces du dossier OFB (fini par /OFB) ") # "D:/OneDrive/Stage M2 - Montpellier Gimenez/PARTIE 1 - deep learning/code_propreGITHUB/View of my folders/OFB"
+dir_pic_OFB = str(input("Write here the directory of the OFB folder (end by '/OFB lynx' or '/OFB jaguar') / Ecrivez ici le chemin d’acces du dossier OFB (fini par '/OFB lynx' ou '/OFB jaguar') ")) # D:/OneDrive/Stage M2 - Montpellier Gimenez/OLIVIER/A envoyer OFB lynx/Deep learning lynx - prediction/OFB lynx
 
 # Folder where the best model is
 dir_best_model = os.path.join(dir_pic_OFB,"model")
@@ -377,7 +381,7 @@ print("The path with all the individuals for the prediction is ",dir_predict)
 dir_new_ind = os.path.join(dir_predict,"0new")
 print("The directory of the pictures to predict is ",dir_new_ind)
 
-dir_metadata = os.path.join(dir_pic_OFB,"lynx_metadata.csv")
+dir_metadata = os.path.join(dir_pic_OFB,"metadata.csv")
 print("The directory of the predicted csv is ",dir_metadata)
 
 dir_results = os.path.join(dir_pic_OFB,"resultats_k-voisins_manuel.csv")
@@ -386,7 +390,7 @@ dir_results = os.path.join(dir_pic_OFB,"resultats_k-voisins_manuel.csv")
 # ====== LAUNCH THE SCRIPT ====================================================
 # =============================================================================
 
-predict_already_dataset(my_dir_predict=dir_predict)
+a = predict_already_dataset(my_dir_predict=dir_predict)
 
 
 
