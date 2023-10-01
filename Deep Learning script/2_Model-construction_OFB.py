@@ -652,7 +652,7 @@ the values you want to test. The goal is, thanks to the test script, to choose t
 
 # SIZE : size of the pictures
 # For testing one model :
-ALL_SIZE = [224]
+ALL_SIZE = [260]
 # For testing different models :
 #ALL_SIZE = [224, 240, 260, 300, 380, 456, 528, 600]
 
@@ -684,13 +684,14 @@ MAPPING_OR_NOT = "no"
 # /!\ For ResNet152 et DenseNet201 we need to put ALL_SIZE = 224
 # /!\ For the different EfficientNet model, the ALL_SIZE depend of the model
 # PREMODEL = ["EfficientNet","ResNet152","DenseNet201"]
-PREMODEL_CHOSEN = ["DenseNet201"]
+PREMODEL_CHOSEN = ["EfficientNet"]
 
 # =============================================================================
 # ====== CHOOSE THE DIRECTORIES ===============================================
 # =============================================================================
 
-dir_pic_OFB_train_model = input("Write here the directory of the OFB folder (end by '/OFB') / Ecrivez ici le chemin d’acces du dossier OFB (fini par /OFB) ") # "D:/OneDrive/Stage M2 - Montpellier Gimenez/PARTIE 1 - deep learning/code_propreGITHUB/View of my folders/OFB/train_model"
+dir_pic_OFB = str(input("Write here the directory of the OFB folder (end by '/OFB lynx' or '/OFB jaguar') / Ecrivez ici le chemin d’acces du dossier OFB (fini par '/OFB lynx' ou '/OFB jaguar') ")) # D:/OneDrive/Stage M2 - Montpellier Gimenez/OLIVIER/A envoyer OFB lynx/Deep learning lynx - prediction/OFB lynx
+dir_pic_OFB_train_model = os.path.join(dir_pic_OFB, "model_to_train_for_error")
 
 # FOLDER SPLIT : Folder with split images which will be used for the deep-learning
 # One number for 1 picture size (n*n)
@@ -703,6 +704,9 @@ print("The directory of the splitted pictures is ",dir_split_all,"\n")
 folder_augmentation = "train_augmentation"
 dir_augmentation = os.path.join(dir_pic_OFB_train_model, folder_augmentation)
 print("The directory of the data augmentation pictures is ", dir_augmentation, "\n")
+
+# ---------- WON'T BE USED FOR THE OFB MODEL CONSTRUCTION -------------
+# The model is just created because of an error, we don't want to save it or anything else
 
 # FOLDER MODEL CONSTRUCTION : where the model, its history and mapping will be saved
 dir_construction = "D:/deep-learning_re-id_gimenez/2_Model-constructionTEST"
