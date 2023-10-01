@@ -327,7 +327,7 @@ Values: /
 
 def crop_resize (my_dir_main,my_df_json_final):
     
-    my_dir_crop_resize = os.path.join(my_dir_main,"dataset_ready3")
+    my_dir_crop_resize = os.path.join(my_dir_main,"dataset_ready")
     
     # ======= I/ CREATING AND COPYING THE FOLDERS =============================
     
@@ -428,26 +428,31 @@ def preprocessing_crop_resize(my_megadetect_path,my_dir_main,treshold_bbox):
 # =============================================================================
 
 # SIZE : size of the pictures
-SIZE = int(input("Write here the size you want / Ecrivez ici la taille que vous desirez")) # 224
+SIZE = int(input("Write here the size you want / Ecrivez ici la taille que vous desirez")) # 260
 
 
 # =============================================================================
 # ====== CHOOSE THE DIRECTORIES ===============================================
 # =============================================================================
 
-
-dir_pic_OFB = input("Write here the directory of the OFB folder (end by '/OFB') / Ecrivez ici le chemin d’acces du dossier OFB (fini par /OFB) ") # "D:/OneDrive/Stage M2 - Montpellier Gimenez/PARTIE 1 - deep learning/code_propreGITHUB/View of my folders/OFB"
+# "D:/OneDrive/Stage M2 - Montpellier Gimenez/OLIVIER/A envoyer OFB lynx/Deep learning lynx - prediction/OFB lynx"
+# D:/OneDrive/Stage M2 - Montpellier Gimenez/OLIVIER/A envoyer OFB jaguar/Deep learning jaguar - prediction/OFB jaguar
+dir_pic_OFB = str(input("Write here the directory of the OFB folder (end by '/OFB lynx' or ‘OFB jaguar’)  / Ecrivez ici le chemin d’acces du dossier OFB (fini par '/OFB lynx' ou '/OFB jaguar') ")) 
 
 
 # MEGADETECTOR_PATH : path of the megadetector file
 MEGADETECTOR_PATH = os.path.join(dir_pic_OFB,"megadetector_results.json")
 
+# Megadetector detect several bounding boxes with different confidence. 
+# You can erase some boxes depending of their confidence with the treshold. 
+# If confidence > treshold, you will have the boxe in the selection for you to choose
+MY_TRESH_BBOX = float(input("Which treshold you want for the bounding boxes? 0.26 recommanded / Quel seuil voulez vous pour les boîtes qui cadrent ? 0.26 recommandé"))
 
 # =============================================================================
 # ====== LAUNCH THE SCRIPT ====================================================
 # =============================================================================
 
-preprocessing_crop_resize(my_megadetect_path = MEGADETECTOR_PATH, my_dir_main = dir_pic_OFB,treshold_bbox = 0.23)
+preprocessing_crop_resize(my_megadetect_path = MEGADETECTOR_PATH, my_dir_main = dir_pic_OFB,treshold_bbox = MY_TRESH_BBOX)
 
 
 
