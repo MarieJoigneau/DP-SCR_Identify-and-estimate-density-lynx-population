@@ -1,6 +1,4 @@
-# DP-SCR_Identify-and-estimate-density-lynx-population
-Script and configuration
-
+# Deep learning script
 
 Here you have all the script I use to do my deep learning model and predictions.
 
