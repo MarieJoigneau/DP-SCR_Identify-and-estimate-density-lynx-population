@@ -10,6 +10,6 @@ You put all your pictures in the /OFB lynx/dataset_raw folder as instructed in t
 
 You will also need to open the 4 python scripts when needed.
 
-Don't hesitate to contact me if you encounter any problem,
-Best,
+Don't hesitate to contact me if you encounter any problem,  
+Best,  
 Marie Joigneau (under the supervision of Olivier Gimenez)
