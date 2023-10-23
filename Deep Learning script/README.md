@@ -7,7 +7,7 @@ As you work with OFB, you will also have my pictures.
 
 I advise you to read my report and my presentation before the script for a better understanding.
 
-For the script : 
+For the script, the "..._OFB" ones are for the OFB predictions with input to help the use in the prediction and specific needs. You will find them in the folder "OFB prediction". 2_Model-construction and 2_Model-construction_OFB are quite similar for example. And for the rest: 
 - 1_Pre-processing : permits to prepare the dataset for the model (find the individual on the picture, crop, resize and split the dataset in train/validation/test)
 - 1_Pre-processing_change-min-picture : permits to keep the same distribution but delete the individuals with less than X pictures
 - 2_Model-construction : permits to create different models depending of Triplet Loss and KNN metrics and the tranfer learning model
